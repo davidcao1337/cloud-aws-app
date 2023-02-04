@@ -14,7 +14,7 @@ const Register = (props) => {
     e.preventDefault();
     const users = { username, password, fname, lname, email };
 
-    fetch('http://localhost:8000/users/', {
+    fetch('http://http://ec2-3-22-41-174.us-east-2.compute.amazonaws.com:8000/users/', {
       method: 'POST',
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(users)
