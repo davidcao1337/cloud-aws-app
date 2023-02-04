@@ -14,7 +14,7 @@ const Login = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await fetch('http://http://ec2-3-22-41-174.us-east-2.compute.amazonaws.com:8000/users');
+    const response = await fetch('http://ec2-3-22-41-174.us-east-2.compute.amazonaws.com:8000/users');
     const users = await response.json();
 
     for(let i = 0; i < users.length; i++){
