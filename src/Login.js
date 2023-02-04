@@ -1,4 +1,6 @@
 import {useRef, useState } from "react";
+import cloudLogo from './assets/cloud-flat.png'
+import winton from './assets/winton.jpg'
 
 const Login = (props) => {
   const [username, setUsername] = useState('');
@@ -32,33 +34,37 @@ const Login = (props) => {
   return (
     <>
       {success ? (
-          <section>
-            <h1>Logged In</h1>
+          <div className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
+            <img src={winton} alt="" width="230" height="69" />
+            <h2 className="mb-5 font-bold text-3xl text-[#525252]">Logged In!</h2>
             <ul>
               <li ref={fNameRef}>First Name: {fNameRef.current}</li>
               <li ref={lNameRef}>Last Name: {lNameRef.current}</li>
               <li ref={emailRef}>Email: {emailRef.current}</li>
             </ul>
-          </section>
+          </div>
       ) : (
-            <div className="login">
-              <h2>Login Here</h2>
+            <div className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
+              <img className="mt-24 mb-10" src={cloudLogo} alt="" width="230" height="69" />
+              <h2 className="mb-5 font-bold text-3xl text-[#525252]">Login Here</h2>
               <form onSubmit={handleSubmit}>
-                <label>Username</label>
-                <input 
+                <label className="font-semibold">Username</label>
+                <input
+                  className="mb-6 border-2 w-full rounded-[5px] px-2 py-2"
                   type="text" 
                   required 
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                 />
-                <label>Password</label>
-                <input 
+                <label className="font-semibold">Password</label>
+                <input
+                  className="border-2 w-full rounded-[5px] px-2 py-2"
                   type="password" 
                   required 
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
-                <button type="submit">Login</button>
+                <button className="mt-10 mb-24 w-full font-extrabold text-lg text-white bg-sky-400 rounded-[6px] px-16 py-3" type="submit">Login</button>
               </form>
             </div>
       )}
